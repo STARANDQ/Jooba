@@ -1,0 +1,170 @@
+.content .text_title{
+    color: white;
+    padding: 75px;
+}
+
+.content .text_title h1{
+    font-size: 65px;
+}
+
+.content .text_title .block{
+    margin-top: 50px;
+}
+
+.content .text_title .block tr td:nth-child(1){
+    font-size: 90px;
+}
+
+.content .text_title .block tr td:nth-child(2){
+    font-size: 35px;
+    padding-left: 10px;
+}
+
+.content .main{
+    margin-top: 950px;
+    padding: 40px;
+    text-align: center;
+}
+
+.content .main h1{
+    color:#414141;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.content .main .blocks_list table{
+    padding: 30px;
+    display: inline-block;
+    border-spacing: 25px;
+}
+
+.content .main .blocks_list table tr td{
+    color: #414141;
+    font-size: 35px;
+    background: white;
+    text-align: left;
+    padding: 20px;
+    box-shadow: #484848 0 0 16px;
+}
+
+.content .main .advantages{
+    margin-top: 100px;
+    text-align: left;
+}
+
+.content .main .advantages h1{
+    font-size: 50px;
+}
+
+.content .main .advantages ol{
+    margin: 15px;
+    padding: 15px;
+}
+
+.content .main .advantages ol li{
+    margin: 25px 0 25px 0;
+    font-size: 30px;
+    color: #414141;
+}
+
+.content .main .tariffs{
+    background: white;
+    border-radius: 30px;
+    border: 1px solid #c5c5c5;
+    box-shadow: #c7c7c7 -1px -5px 20px 5px;
+    text-align: center;
+}
+
+.content .main .tariffs table{
+    display: inline-block;
+    color: #414141;
+    border-collapse: separate;
+    border-spacing: 0;
+    padding: 20px;
+}
+
+.content .main .tariffs table tr td{
+    font-size: 30px;
+    padding: 3px;
+    border-bottom: 1px solid #a7a7a7;
+}
+
+.content .main .tariffs table tr td:nth-child(1){
+    text-align: left;
+}
+
+.content .main .tariffs table tr td:nth-child(2),
+.content .main .tariffs table tr td:nth-child(3),
+.content .main .tariffs table tr td:nth-child(4) {
+    background: #F3F2F2;
+    padding: 20px;
+    border:1px solid #a7a7a7;
+    font-weight: 900;
+}
+
+.content .main .tariffs table tr:first-child td:nth-child(2){
+    border-radius: 30px 0 0 0;
+    border:1px solid #a7a7a7;
+}
+
+.content .main .tariffs table tr:first-child td:nth-child(4){
+    border-radius: 0 30px 0 0;
+    border:1px solid #a7a7a7;
+}
+
+.content .main .tariffs table tr:last-child td:nth-child(2){
+    border-radius: 0 0 0 30px;
+    border:1px solid #a7a7a7;
+}
+
+.content .main .tariffs table tr:last-child td:nth-child(4){
+    border-radius: 0 0 30px 0;
+    border:1px solid #a7a7a7;
+}
+
+.content .main .tariffs table tr:last-child td{
+    border-bottom: none;
+}
+
+.content .main .tariffs table tr:first-child td:nth-child(3){
+    border-top:1px solid #a7a7a7;
+}
+
+.content .main .tariffs table tr:last-child td:nth-child(3){
+    border-bottom:1px solid #a7a7a7;
+}
+
+.content .main .application{
+    margin-top: 200px;
+}
+
+.content .main .application form{
+    margin-top: 60px;
+    margin-bottom: 150px;
+}
+
+.content .main .application form input{
+    font-size: 30px;
+    margin: 20px;
+    padding: 15px 25px 15px 25px;
+    border-radius: 30px;
+    outline: none;
+    border: 1px solid grey;
+    width: 400px;
+}
+
+.content .main .application form input::placeholder{
+    color: #414141;
+    font-size: 20px;
+}
+
+.content .main .application form button {
+    margin-top: 20px;
+    padding: 20px 70px 20px 70px;
+    font-size: 30px;
+    color: white;
+    background: #00D9AF;
+    border: 1px solid #008269;
+    border-radius: 30px;
+    cursor: pointer;
+}

@@ -1,0 +1,146 @@
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content .text_title{
+    color: white;
+}
+
+.content .text_title h1{
+    font-size: 65px;
+}
+
+.content .text_title .block{
+    margin-top: 50px;
+}
+
+.content .text_title .block tr td:nth-child(1){
+    font-size: 90px;
+}
+
+.content .text_title .block tr td:nth-child(2){
+    font-size: 35px;
+    padding-left: 10px;
+}
+
+.block_info{
+    font-size: 35px;
+    margin-top: 40px;
+    font-family: sans-serif;
+}
+
+.what_is{
+    text-align: center;
+    margin-top: 500px;
+    font-size: 30px;
+    padding: 40px;
+}
+
+.what_is h1{
+    color: #414141;
+    margin-bottom: 60px;
+}
+
+.what_is .block{
+    background: #FCFBFB;
+    box-shadow: #868686 0 0 20px;
+    border: 1px solid #bababa;
+    border-radius: 20px;
+    color: #414141;
+    display: inline-block;
+}
+
+.what_is .block table{
+    display: inline-block;
+    padding: 60px;
+    border-collapse: separate;
+    border-spacing: 100px 20px;
+}
+
+.what_is .block table tr td{
+    vertical-align: middle;
+    text-align: left;
+}
+
+.what_is .block table tr td span:first-child{
+    float: left;
+}
+
+.what_is .block table tr td span:last-child{
+    float: right;
+}
+
+.about_us{
+    text-align: center;
+    margin-top: 100px;
+    padding: 80px;
+}
+
+.about_us h1{
+    margin: 50px;
+    font-size: 40px;
+}
+
+.about_us p{
+    font-size: 30px;
+}
+
+.interesting-page {
+    display: grid;
+    grid-template-rows: 35% 65%;
+    color: #414141;
+}
+
+.interesting-page__title {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.interesting-page__elems {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 60% 60%;
+    grid-row-gap: 40px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.interesting-page__elems .element {
+    background-color: #FCFBFB;
+    display: grid;
+    grid-template-rows: 20% 50% 30%;
+    margin: 0 auto;
+    width: 60%;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 100px;
+}
+
+.element h2 {
+    font-size: 1.5em;
+}
+
+.element p {
+    font-size: 1em;
+}
+
+.element .bnt-href {
+    background-color: #00D9AF;
+    width: 50%;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    padding: 4px 20px 1px 20px;
+    height: 20px;
+    border: 2px solid #999999;
+    border-radius: 25px;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+.element .bnt-href:hover {
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+}

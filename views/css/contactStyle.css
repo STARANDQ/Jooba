@@ -1,0 +1,96 @@
+.content__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content__elems {
+    display: grid;
+    grid-row-gap: 10%;
+    grid-template-rows: 70% 40% 80%;
+}
+
+.content__elems__text {
+
+}
+
+.content__elems__title {
+    color: white;
+    font-size: 3.5em;
+    margin-bottom: 25px;
+    z-index: -2;
+}
+
+.content__elems__subtitle {
+    color: white;
+    font-size: 2.8em;
+    z-index: -2;
+}
+
+.content__elems__contact {
+    color: #414141;
+    display: grid;
+    grid-template-rows: 40% 30% 30%;
+    text-align: center;
+}
+
+.content__elems__contactEdit {
+    color: #414141;
+    display: grid;
+    grid-template-rows: 70% 30%;
+    text-align: center;
+}
+
+.content__elems__contact__title {
+    font-size: 3em;
+}
+
+.content__elems__contact__info {
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+
+.content__elems__form {
+    display: grid;
+    grid-template-rows: 20% 80%;
+    color: #414141;
+}
+
+.content__elems__form__title {
+    font-size: 3em;
+    text-align: center;
+}
+
+.content__elems__form__main {
+    display: grid;
+    grid-row-gap: 40px;
+    grid-template-rows: repeat(4, 12%);
+}
+
+.content__elems__form__main__input {
+    width: 40%;
+    border-radius: 50px;
+    outline: none;
+    margin: 0 auto;
+    padding-left: 30px;
+    font-size: 1.5em;
+    color: #414141;
+}
+
+.content__elems__form__main__btn {
+    background-color: #00D9AF;
+    width: 10%;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 100px;
+    height: 30px;
+    border: 2px solid #999999;
+    border-radius: 25px;
+    font-size: 1.5em;
+    transition: 0.3s;
+}
+
+.content__elems__form__main__btn:hover {
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+}

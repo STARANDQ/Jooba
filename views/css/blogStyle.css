@@ -1,0 +1,114 @@
+.content__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content__elems {
+    display: grid;
+    grid-row-gap: 2%;
+    grid-template-rows: 10% 4% 80%;
+}
+
+.content__elems__text {
+
+}
+
+.content__elems__title {
+    color: white;
+    font-size: 3.5em;
+    margin-bottom: 25px;
+    z-index: -2;
+}
+
+.content__elems__subtitle {
+    color: white;
+    font-size: 2.8em;
+    z-index: -2;
+}
+
+.content__elems__menu {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    width: 70%;
+    margin: auto auto;
+    border-radius: 50px;
+    box-shadow: 0px 5px 100px 0px rgba(0, 0, 0, 0.25);
+    background: white;
+}
+
+.content__elems__menu__text {
+    text-align: center;
+    padding: 20px 40px;
+    font-size: 1.2em;
+    color: #414141;
+}
+
+.content__elems__menu__text:hover {
+    background-color: #E0673A;
+    color: white;
+}
+
+.elem1 {
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 50px 0 0 50px;
+}
+
+.elem1:hover {
+    border-right: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.elem2 {
+    border-top: 2px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.elem3 {
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 0 50px 50px 0;
+}
+
+.content__elems__posts {
+    display: grid;
+    grid-template-rows: repeat(6, 25%);
+}
+
+.content__elems__posts__post {
+    display: grid;
+    grid-template-rows: 71% 5% 25%;
+    background-color: white;
+    width: 90%;
+    border-radius: 115px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 5px 100px 0px rgba(0, 0, 0, 0.16);
+    height: 800px;
+    margin: 0 auto;
+}
+
+.content__elems__posts__post__image {
+    width: 100%;
+    border-radius: 115px 115px 0 0;
+}
+
+.content__elems__posts__post__info {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    font-size: 1.2em;
+    color: #BCBCBC;
+}
+
+.content__elems__posts__post__info__date {
+    margin: auto 0 auto 100px;
+    text-align: left;
+}
+
+.content__elems__posts__post__info__type {
+    text-align: right;
+    margin: auto 100px auto 0;
+}
+
+.content__elems__posts__post__text {
+    text-align: center;
+    margin: auto 0;
+    font-size: 2em;
+    color: #414141;
+}
