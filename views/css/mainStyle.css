@@ -274,10 +274,12 @@ a {
 
 .navigation__menu__items {
     display: inline-grid;
-    position: absolute;
-    left: 50%;
+    margin-left: 200px;
+    margin-top: 35px;
+    /*position: absolute;*/
+    /*left: 50%;
     top: 60%;
-    transform: translate(-50%, -60%);
+    transform: translate(-50%, -60%);*/
 }
 
 .navigation__menu__items__link {
@@ -304,19 +306,11 @@ a {
     transition: 0.3s;
 }
 
-/*.navigation__menu__items__link li a {
-    color: #363636;
-}*/
-
 .navigation__menu__items__link li a:hover {
     background-color: #363636;
     color: white;
     transition: 0.3s;
 }
-
-/*.navigation__menu__items__link li a:hover {
-    color: white;
-}*/
 
 .down_item {
     margin-top: 180px;

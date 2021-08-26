@@ -18,6 +18,7 @@
                 dataType: "json",
                 success: (response) => {
                     if(response.Code === "200") window.location.href = "/user/" + response.login;
+                    if(response.Code === "100") document.getElementById('main__err').innerHTML = 'Неправильний логін або пароль';
                 },
                 error: (err) => {
                     console.log(err);
@@ -133,8 +134,9 @@
                 Вхід
             </p>
             <form class="content__form__main">
-                <input class="content__form__main__input" name="login" type="text" placeholder="Логін або номер телефону">
-                <input class="content__form__main__input" name="password" type="text" placeholder="Пароль">
+                <input class="content__form__main__input" oninput="clearType()" name="login" type="text" placeholder="Логін або номер телефону" required>
+                <input class="content__form__main__input" oninput="clearType()" name="password" type="text" placeholder="Пароль" required>
+                <p class="content__form__main__err" id="main__err">&nbsp;</p>
                 <button class="content__form__main__btn" value="Увійти">
                     Увійти
                 </button>
@@ -142,5 +144,11 @@
         </div>
     </div>
     <script src="js/script.js"></script>
+    <script>
+        function clearType(){
+            let clearText = document.getElementById("main__err");
+            clearText.innerHTML = '&nbsp;';
+        }
+    </script>
 </body>
 </html>
