@@ -4,6 +4,31 @@ const Logger = require('../Logger');
 
 const User = require('../models/user');
 
+/* [ - - - - - HTML PAGES - - - - - ] */
+
+router.get('/index', (req, res, next) => {
+	return res.render('index.ejs');
+});
+
+router.get('/about', (req, res, next) => {
+	return res.render('about.ejs');
+});
+
+router.get('/blog', (req, res, next) => {
+	return res.render('blog.ejs');
+});
+
+router.get('/contact', (req, res, next) => {
+	return res.render('contact.ejs');
+});
+
+router.get('/suppliers', (req, res, next) => {
+	return res.render('suppliers.ejs');
+});
+
+router.get('/vacancies', (req, res, next) => {
+	return res.render('vacancies.ejs');
+});
 
 /* [ - - - - - REGISTER - - - - - ] */
 
@@ -93,7 +118,9 @@ router.get('/user/*', (req, res, next) => {
 		} else{
 			return res.render('user.ejs', {
 				name: data.name,
-				surname: data.surname
+				surname: data.surname,
+				companyName: data.companyName,
+				brandName: data.brandName
 			});
 		}
 	});

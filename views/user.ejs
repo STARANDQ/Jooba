@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login - Jooba</title>
+    <title><%=companyName%> - Jooba</title>
     <link rel="stylesheet" href="../css/mainStyle.css">
-    <link rel="stylesheet" href="../css/registrationStyle.css">
+    <link rel="stylesheet" href="../css/userStyle.css">
 </head>
 <body>
 <header class="header">
@@ -45,10 +45,11 @@
             <circle cx="148.341" cy="59.6356" r="16.7777" fill="black"/>
             <circle cx="148.341" cy="59.6355" r="11.7942" fill="white"/>
         </svg>
-        <div class="header__account">
+        <p class="header__company"><%=companyName%></p>
+        <!--<div class="header__account">
             <a class="header__account__cabinet" href="">Кабінет</a>
             <a class="header__account__start" href="">Почати</a>
-        </div>
+        </div>-->
         <div class="header__info">
             <svg  class="header__info__img" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="17.5" cy="17.5" r="17" stroke="black" stroke-opacity="0.4"/>
@@ -87,23 +88,23 @@
             <div class="navigation__menu__items__link">
                 <div class="navigation__menu__items__link__elem" style="float: left">
                     <ul>
-                        <li><a href="index.html">Головна</a></li>
-                        <li><a href="suppliers.html">Покупцям</a></li>
+                        <li><a href="index.ejs">Головна</a></li>
+                        <li><a href="suppliers.ejs">Покупцям</a></li>
                         <li><a href="#">Постачальникам</a></li>
-                        <li><a href="about.html">Про Jooba</a></li>
+                        <li><a href="about.ejs">Про Jooba</a></li>
                     </ul>
                 </div>
                 <div class="down_item navigation__menu__items__link__elem" style="float: left">
                     <ul>
-                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="blog.ejs">Блог</a></li>
                     </ul>
                 </div>
                 <div class="navigation__menu__items__link__elem" style="float: left">
                     <ul>
-                        <li><a href="vacancies.html">Вакансії</a></li>
-                        <li><a href="contact.html">Контакти</a></li>
+                        <li><a href="vacancies.ejs">Вакансії</a></li>
+                        <li><a href="contact.ejs">Контакти</a></li>
                         <li><a href="#">Партнерська програма</a></li>
-                        <li><a href="about.html#aboutAnchor">Як пористуватись?</a></li>
+                        <li><a href="about.ejs#aboutAnchor">Як пористуватись?</a></li>
                     </ul>
                 </div>
             </div>
@@ -111,18 +112,22 @@
     </div>
 </nav>
 <div class="content">
-    <div class="content__form">
-        <p class="content__form__title">
+    <div class="content__container">
+        <p class="content__title">
             Особистий акаунт
         </p>
-        <p>Name: <%= name %></p>
-        <p>Surname: <%= surname %></p>
-        <p><a href="/logout">Вийти з акаунту</a></p>
-
+        <div class="content__info">
+            <!--<img src="../img/doc_2021-08-26_15-21-45.png" alt="">-->
+            <p class="content__info__text content__info__company-name">Company Name: <%= companyName %></p>
+            <p class="content__info__text content__info__brand-name">Brand Name: <%= brandName %></p>
+            <p class="content__info__text content__info__name">Name: <%= name %></p>
+            <p class="content__info__text content__info__surname">Surname: <%= surname %></p>
+        </div>
+        <p><a class="content__info__logout" href="/logout">Вийти з акаунту</a></p>
     </div>
 </div>
 <script>
 </script>
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 </body>
 </html>

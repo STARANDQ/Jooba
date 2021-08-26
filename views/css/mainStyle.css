@@ -62,7 +62,7 @@ a {
     height: 333px;
     right: 0;
     top: 1500px;
-    z-index: -1;
+    z-index: -2;
 }
 
 .circle5 {
@@ -74,7 +74,7 @@ a {
     height: 333px;
     left: 0;
     top: 1520px;
-    z-index: -1;
+    z-index: -2;
 }
 
 .circle6 {
@@ -86,7 +86,7 @@ a {
     height: 1000px;
     right: 0;
     top: 2000px;
-    z-index: -1;
+    z-index: -2;
 }
 
 .circle7 {
@@ -96,7 +96,7 @@ a {
     background-position: left;
     left: 0;
     top: 2850px;
-    z-index: -1;
+    z-index: -2;
 }
 
 .circle8 {
@@ -108,7 +108,7 @@ a {
     height: 1000px;
     right: 0;
     top: 4900px;
-    z-index: -1;
+    z-index: -2;
 }
 
 .circle9 {
@@ -120,7 +120,7 @@ a {
     height: 1441px;
     left: 0;
     top: 6500px;
-    z-index: -1;
+    z-index: -2;
 }
 
 .header {
@@ -210,6 +210,11 @@ a {
     border-radius: 30px;
 }
 
+.header__info__img {
+    border: 2px solid #999999;
+    border-radius: 25px;
+}
+
 .header__info__img:hover ~ .header__info__window {
     display: block;
 }
@@ -241,17 +246,18 @@ a {
     text-align: center;
     font-size: 1.2em;
     cursor: pointer;
+    z-index: 1;
 }
 
 .navigation__menu {
     position: relative;
     width: 99.89%;
     height: 300px;
-    background-color: rgba(255, 255, 255, 0.45);
+    background-color: rgba(199, 199, 199, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.18);
     border-radius: 25px;
     box-shadow: 0 17px 30px 0 rgba(0, 0, 0, 0.25);
-    z-index: -1;
+    z-index: 0;
 }
 
 .navigation__menu__social-media {
@@ -279,16 +285,38 @@ a {
 }
 
 .navigation__menu__items__link__elem {
-    margin: 0 50px 0 50px;
+    margin: 0 44px 0 44px;
 }
 
 .navigation__menu__items__link li {
+    margin-top: 25px;
+    text-align: center;
+    list-style-type: none;
+}
+
+.navigation__menu__items__link li a {
     color: #363636;
     font-size: 20px;
     font-weight: bold;
-    padding: 10px 0 10px 0;
-    list-style-type: none;
+    padding: 5px 10px 5px 10px;
+    border: 2px solid #363636;
+    border-radius: 25px;
+    transition: 0.3s;
 }
+
+/*.navigation__menu__items__link li a {
+    color: #363636;
+}*/
+
+.navigation__menu__items__link li a:hover {
+    background-color: #363636;
+    color: white;
+    transition: 0.3s;
+}
+
+/*.navigation__menu__items__link li a:hover {
+    color: white;
+}*/
 
 .down_item {
     margin-top: 180px;

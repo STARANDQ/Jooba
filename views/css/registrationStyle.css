@@ -2,11 +2,46 @@ body {
     background-color: #E0673A;
 }
 
+.container__a {
+    display: grid;
+    grid-template-columns: 75% 20% 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header__account__cabinet__reg {
+    padding-right: 2px;
+    text-align: center;
+    margin: auto 0;
+    width: 100%;
+    border-radius: 25px;
+    height: 30px;
+    color: #4A4A4A;
+    line-height: 180%;
+    border: 2px solid #999999;
+    transition: 0.3s;
+}
+
+.header__account__cabinet__reg:hover {
+    background-color: #4A4A4A;
+    color: white;
+    transition: 0.3s;
+}
+
+.header__info__img__a:hover ~ .header__info__window {
+    display: block;
+}
+
+.navigation {
+    z-index: 0;
+}
+
 .content__form {
     display: grid;
-    grid-template-rows: 20% 80%;
+    grid-template-rows: 10% 90%;
     color: white;
     margin-bottom: 200px;
+    z-index: -1;
 }
 
 .content__form__title {
@@ -16,8 +51,15 @@ body {
 
 .content__form__main {
     display: grid;
-    grid-row-gap: 40px;
-    grid-template-rows: repeat(5, 10%) 2% 10%;
+    grid-row-gap: 25px;
+    grid-template-rows: repeat(7, 7%) 5%;
+}
+
+.content__form__main__err {
+    width: 30%;
+    height: 10px;
+    margin: 3px auto 0 auto;
+    font-size: 0.9em;
 }
 
 .content__form__main__input {
@@ -31,26 +73,32 @@ body {
     height: 50px;
 }
 
+.content__form__main__check {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .content__form__main__access {
     margin: 0 auto;
     height: 5px;
 }
 
 .content__form__main__access__checkbox {
-
 }
 
 .content__form__main__btn {
     background-color: #00D9AF;
-    width: 15%;
+    width: 20%;
     color: white;
     margin: 0 auto;
     text-align: center;
-    padding: 10px 100px;
-    height: 30px;
+    height: 40px;
     border: 2px solid #008269;
     border-radius: 25px;
     font-size: 1.5em;
+    cursor: pointer;
     transition: 0.3s;
 }
 
