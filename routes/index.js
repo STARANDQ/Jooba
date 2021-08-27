@@ -30,6 +30,10 @@ router.get('/vacancies', (req, res, next) => {
 	return res.render('vacancies.ejs');
 });
 
+router.get('/TEST', (req, res, next) => {
+	return res.render('TEST.ejs');
+});
+
 /* [ - - - - - REGISTER - - - - - ] */
 
 router.get('/register', (req, res, next) => {
