@@ -8,8 +8,8 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const Logger = require('./Logger');
 
-//const MongoDBURI = process.env.MONGO_URI || 'mongodb://localhost/Jooba';
-const MongoDBURI = "mongodb+srv://starandq:qwerty123@cluster0.1uw1r.mongodb.net/Jooba?retryWrites=true&w=majority";
+const MongoDBURI = process.env.MONGO_URI || 'mongodb://localhost/Jooba';
+/*const MongoDBURI = "mongodb+srv://starandq:qwerty123@cluster0.1uw1r.mongodb.net/Jooba?retryWrites=true&w=majority";*/
 
 mongoose.connect(MongoDBURI, {
   useUnifiedTopology: true,

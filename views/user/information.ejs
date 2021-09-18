@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= company.companyName %> - Jooba</title>
+    <link rel="stylesheet" href="../css/userStyle/userStyle.css">
+    <link rel="stylesheet" href="../css/userStyle/informationStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<script>
+    $(document).ready(() => {
+        $("#profileInfoEdit").submit((event) => {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/informationForm1',
+                data: $('#profileInfoEdit').serialize(),
+                dataType: "json",
+                success: (response) => {
+                    if(response.code === "reload") {
+                        window.location.reload();
+                    }
+                }
+            })
+        });
+    });
+
+    $(document).ready(() => {
+        $("#companyInfoEdit").submit((event) => {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/informationForm2',
+                data: $('#companyInfoEdit').serialize(),
+                dataType: "json",
+                success: (response) => {
+                    if(response.code === "reload") {
+                        window.location.reload();
+                    }
+                }
+            })
+        });
+    });
+</script>
+<body>
+<div class="wrapper">
+    <div class="content">
+        <div class="content__menu">
+            <div class="content__menu__company-info">
+                <img class="content__menu__company-info__img" src="../img/star.jpg" alt="">
+                <div class="content__menu__company-info__names">
+                    <p>Company:</p>
+                    <p>Brand:</p>
+                </div>
+                <div class="content__menu__company-info__names">
+                    <p><%= company.companyName %></p>
+                    <p><%= company.brandName %></p>
+                </div>
+            </div>
+            <div class="content__menu__logout">
+                <a class="content__menu__logout__btn" href="/logout">Вийти з акаунту</a>
+            </div>
+            <div class="content__menu__line"></div>
+            <a class="content__menu__button" href="/basket">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Кошик
+                </p>
+            </a>
+            <a class="content__menu__button" href="/order">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Замовлення
+                </p>
+            </a>
+            <a class="content__menu__button" href="/balance">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Баланс
+                </p>
+            </a>
+            <a class="content__menu__button" href="/myGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Мої товари
+                </p>
+            </a>
+            <a class="content__menu__button" href="/setsOfGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Набори товарів
+                </p>
+            </a>
+            <a class="content__menu__button" href="/allGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Всі товари
+                </p>
+            </a>
+            <a class="content__menu__button" href="/suppliersUser">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Постачальники
+                </p>
+            </a>
+            <a class="content__menu__button" href="/newsFeed">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Стрічка новин
+                </p>
+            </a>
+            <a class="content__menu__button active" href="/information">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Інформація
+                </p>
+            </a>
+            <div class="content__menu__balance">
+                <p class="content__menu__balance__title">Баланс</p>
+                <p class="content__menu__balance__text"><span class="content__menu__balance__text__money">0.00</span>грн</p>
+            </div>
+        </div>
+        <div class="content__info">
+            <div class="content__info__title">
+                <h1 class="content__info__title__text">Профіль</h1>
+            </div>
+            <div class="content__info__main">
+                <div class="content__info__main__profile-main">
+                    <form id="profileInfoEdit" class="content__info__main__profile">
+                        <div class="content__info__main__elems">
+                            <input name="login" id="login" type="text" value="<%= login %>" hidden="hidden">
+                            <div>
+                                <label for="name">Ім'я</label>
+                                <input name="name" id="name" type="text" value="<%= name %>" placeholder="<%= name %>">
+                            </div>
+                            <div>
+                                <label for="surname">Прізвище</label>
+                                <input name="surname" id="surname" type="text" value="<%= surname %>" placeholder="<%= surname %>">
+                            </div>
+                            <div>
+                                <label for="phoneNumber">Телефон</label>
+                                <input name="phoneNumber" id="phoneNumber" type="text" value="<%= phoneNumber %>" placeholder="<%= phoneNumber %>">
+                            </div>
+                            <div>
+                                <label for="webSite">Веб-сайт</label>
+                                <input name="webSite" id="webSite" type="text">
+                            </div>
+                        </div>
+                        <div class="content__info__main__elems">
+                            <div>
+                                <label for="email">E-Mail</label>
+                                <input name="email" id="email" type="email" value="<%= email %>" placeholder="<%= email %>">
+                            </div>
+                            <div>
+                                <label for="newPassword">Новий пароль</label>
+                                <input name="newPassword" id="newPassword" type="password">
+                            </div>
+                            <div>
+                                <label for="password">Поточний пароль</label>
+                                <input name="password" id="password" type="password">
+                            </div>
+                            <div>
+                                <button type="submit" class="content__info__block__save">Зберегти</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="content__info__main__profile__upload-photo">
+                        <p class="content__info__main__profile__upload-photo__text">Фото профілю</p>
+                        <label class="content__info__block__save" >Загрузити<input type="file"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="content__info__title-down">
+                <h1 class="content__info__title__down">Компанія</h1>
+            </div>
+            <div class="content__info__main">
+                <div class="content__info__main__profile-main">
+                    <form id="companyInfoEdit" class="content__info__main__profile">
+                        <div class="content__info__main__elems">
+                            <input name="login" id="login" type="text" value="<%= company.userLogin %>" hidden="hidden">
+                            <div>
+                                <label for="companyName">Назва компанії</label>
+                                <input name="companyName" id="companyName" type="text" value="<%= company.companyName %>" placeholder="<%= company.companyName %>">
+                            </div>
+                            <div>
+                                <label for="brandName">Назва бренду</label>
+                                <input name="brandName" id="brandName" type="text" value="<%= company.brandName %>" placeholder="<%= company.brandName %>">
+                            </div>
+                            <div>
+                                <label for="publicEmail">Публічний E-Mail</label>
+                                <input name="publicEmail" id="publicEmail" type="email" value="<%= company.publicEmail %>" placeholder="<%= company.publicEmail %>">
+                            </div>
+                            <div>
+                                <label for="workPhoneNumber">Робочий телефон</label>
+                                <input name="workPhoneNumber" id="workPhoneNumber" type="text" value="<%= company.workPhoneNumber %>" placeholder="<%= company.workPhoneNumber %>">
+                            </div>
+                            <div>
+                                <label for="webSite">Веб-сайт</label>
+                                <input name="webSite" id="webSite" type="text">
+                            </div>
+                        </div>
+                        <div class="content__info__main__elems">
+                            <div>
+                                <label for="companyAddress">Адреса</label>
+                                <input name="companyAddress" id="companyAddress" type="text" value="<%= company.companyAddress %>" placeholder="<%= company.companyAddress %>">
+                            </div>
+                            <div>
+                                <label for="city">Місто</label>
+                                <input name="city" id="city" type="text" value="<%= company.city %>" placeholder="<%= company.city %>">
+                            </div>
+                            <div>
+                                <label for="description">Опис</label>
+                                <textarea name="description" id="description" cols="40" rows="7"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="content__info__block__save">Зберегти</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="content__info__main__profile__upload-photo">
+                        <p class="content__info__main__profile__upload-photo__text">Логотип компанії</p>
+                        <label class="content__info__block__save" >Загрузити<input type="file"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+</script>
+<script src="../js/script.js"></script>
+</body>
+</html>

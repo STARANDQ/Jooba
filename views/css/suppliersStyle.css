@@ -1,6 +1,6 @@
 .content .text_title{
     color: white;
-    padding: 75px;
+    padding: 0 75px 75px 75px;
 }
 
 .content .text_title h1{
@@ -21,7 +21,7 @@
 }
 
 .content .main{
-    margin-top: 950px;
+    margin-top: 150px;
     padding: 40px;
     text-align: center;
 }
@@ -140,7 +140,6 @@
 
 .content .main .application form{
     margin-top: 60px;
-    margin-bottom: 150px;
 }
 
 .content .main .application form input{

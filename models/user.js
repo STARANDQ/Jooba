@@ -12,8 +12,10 @@ userSchema = new Schema( {
 		default: "user"
 	},
 	password: String,
-	companyName: String,
-	brandName: String,
+	webSite: {
+		type: String,
+		default: ""
+	},
 	createdAt: {
 		type: Date,
 		default: Date.now

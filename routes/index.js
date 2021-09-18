@@ -3,6 +3,7 @@ const router = express.Router();
 const Logger = require('../Logger');
 
 const User = require('../models/user');
+const Company = require('../models/company');
 
 /* [ - - - - - HTML PAGES - - - - - ] */
 
@@ -23,16 +24,237 @@ router.get('/contact', (req, res, next) => {
 });
 
 router.get('/suppliers', (req, res, next) => {
-	return res.render('suppliers.ejs');
+	return res.render('suppliersUser.ejs');
 });
 
 router.get('/vacancies', (req, res, next) => {
 	return res.render('vacancies.ejs');
 });
 
-router.get('/TEST', (req, res, next) => {
-	return res.render('TEST.ejs');
+router.get('/basket', (req, res, next) => {
+	User.findOne({ login: req.session.user_id }, (err, data) => {
+		if (!data) {
+			res.redirect('/login');
+		} else{
+			return res.render('user/basket.ejs', {
+				userId: data.id,
+				name: data.name,
+				surname: data.surname,
+				companyName: data.companyName,
+				brandName: data.brandName
+			});
+		}
+	});
 });
+
+router.get('/order', (req, res, next) => {
+	User.findOne({ login: req.session.user_id }, (err, data) => {
+		if (!data) {
+			res.redirect('/login');
+		} else{
+			return res.render('user/order.ejs', {
+				userId: data.id,
+				name: data.name,
+				surname: data.surname,
+				companyName: data.companyName,
+				brandName: data.brandName
+			});
+		}
+	});
+});
+
+router.get('/balance', (req, res, next) => {
+	User.findOne({ login: req.session.user_id }, (err, data) => {
+		if (!data) {
+			res.redirect('/login');
+		} else{
+			return res.render('user/balance.ejs', {
+				userId: data.id,
+				name: data.name,
+				surname: data.surname,
+				companyName: data.companyName,
+				brandName: data.brandName
+			});
+		}
+	});
+});
+
+router.get('/myGoods', (req, res, next) => {
+	User.findOne({ login: req.session.user_id }, (err, data) => {
+		if (!data) {
+			res.redirect('/login');
+		} else{
+			return res.render('user/myGoods.ejs', {
+				userId: data.id,
+				name: data.name,
+				surname: data.surname,
+				companyName: data.companyName,
+				brandName: data.brandName
+			});
+		}
+	});
+});
+
+router.get('/setsOfGoods', (req, res, next) => {
+	User.findOne({ login: req.session.user_id }, (err, data) => {
+		if (!data) {
+			res.redirect('/login');
+		} else{
+			return res.render('user/setsOfGoods.ejs', {
+				userId: data.id,
+				name: data.name,
+				surname: data.surname,
+				companyName: data.companyName,
+				brandName: data.brandName
+			});
+		}
+	});
+});
+
+router.get('/allGoods', (req, res, next) => {
+	User.findOne({ login: req.session.user_id }, (err, data) => {
+		if (!data) {
+			res.redirect('/login');
+		} else{
+			return res.render('user/allGoods.ejs', {
+				userId: data.id,
+				name: data.name,
+				surname: data.surname,
+				companyName: data.companyName,
+				brandName: data.brandName
+			});
+		}
+	});
+});
+
+router.get('/suppliersUser', (req, res, next) => {
+	User.findOne({ login: req.session.user_id }, (err, data) => {
+		if (!data) {
+			res.redirect('/login');
+		} else{
+			return res.render('user/suppliersUser.ejs', {
+				userId: data.id,
+				name: data.name,
+				surname: data.surname,
+				companyName: data.companyName,
+				brandName: data.brandName
+			});
+		}
+	});
+});
+
+router.get('/newsFeed', (req, res, next) => {
+	User.findOne({ login: req.session.user_id }, (err, data) => {
+		if (!data) {
+			res.redirect('/login');
+		} else{
+			return res.render('user/newsFeed.ejs', {
+				userId: data.id,
+				name: data.name,
+				surname: data.surname,
+				companyName: data.companyName,
+				brandName: data.brandName
+			});
+		}
+	});
+});
+
+router.get('/information', (req, res, next) => {
+
+	async function PromiseCompany(){
+		let companyObj = {
+			userLogin: "",
+			publicEmail: "",
+			workPhoneNumber: "",
+			companyAddress: "",
+			city: "",
+			companyName: "",
+			brandName: ""
+		};
+
+		Company.findOne({ userLogin: req.session.user_id }, (err, data) => {
+			if (data) {
+				companyObj.userLogin = data.userLogin;
+				companyObj.publicEmail = data.publicEmail;
+				companyObj.workPhoneNumber = data.workPhoneNumber;
+				companyObj.companyAddress = data.companyAddress;
+				companyObj.city = data.city;
+				companyObj.companyName = data.companyName;
+				companyObj.brandName = data.brandName;
+			}
+		});
+		return companyObj;
+	}
+
+	PromiseCompany().then(companyObj => {
+		User.findOne({ login: req.session.user_id }, (err, data) => {
+			if (!data) {
+				res.redirect('/login');
+			} else{
+				return res.render('user/information.ejs', {
+					userId: data.id,
+					login: data.login,
+					name: data.name,
+					surname: data.surname,
+					companyName: data.companyName,
+					brandName: data.brandName,
+					email: data.email,
+					phoneNumber: data.phoneNumber,
+					company: companyObj
+				});
+			}
+		});
+	})
+
+});
+
+router.post('/informationForm1', (req, res, next) => {
+	let personInfo = req.body;
+
+	console.log(personInfo);
+
+	User.updateOne({ login : personInfo.login}, {
+			$set: {
+				"name" : personInfo.name,
+				"surname" : personInfo.surname,
+				"phoneNumber" : personInfo.phoneNumber,
+				"email" : personInfo.email
+			}
+		},
+		function(err, result){
+		/*Logger.Message(Logger.Mode.FILE, "Status file (fileID) " + fileID + " set 'checked'");*/
+			res.send({
+				"code" : "reload"
+			});
+	});
+});
+
+router.post('/informationForm2', (req, res, next) => {
+	let companyInfo = req.body;
+
+	console.log(companyInfo);
+
+	Company.find({login: companyInfo.userLogin}, (err, data) => {
+			Company.updateOne({ userLogin : companyInfo.login}, {
+					$set: {
+						"companyName" : companyInfo.companyName,
+						"brandName" : companyInfo.brandName,
+						"publicEmail" : companyInfo.publicEmail,
+						"workPhoneNumber" : companyInfo.workPhoneNumber,
+						"companyAddress" : companyInfo.companyAddress,
+						"city" : companyInfo.city
+					}
+				},
+				function(err, result){
+					/*Logger.Message(Logger.Mode.FILE, "Status file (fileID) " + fileID + " set 'checked'");*/
+				});
+
+		res.send({
+			"code" : "reload"
+		});
+	});
+});
+
 
 /* [ - - - - - REGISTER - - - - - ] */
 
@@ -66,6 +288,13 @@ router.post('/register', (req, res, next) => {
 			email: personInfo.email,
 			phoneNumber: personInfo.phoneNumber,
 			password: personInfo.password,
+		});
+		let	newCompany = new Company({
+			userLogin: login,
+			publicEmail: "",
+			workPhoneNumber: "",
+			companyAddress: "",
+			city: "",
 			companyName: personInfo.companyName,
 			brandName: personInfo.brandName
 		});
@@ -74,12 +303,16 @@ router.post('/register', (req, res, next) => {
 			else {
 				Logger.Message(Logger.Mode.REGISTER, `User ${Person.name} ${Person.surname} (${Person.login}) successfully registered`);
 				req.session.user_id = login;
-				res.send({"Code": "200", "ID": Person.login});
+				newCompany.save((err, Company) => {
+					if (err) Logger.Error(Logger.Mode.REGISTER, err);
+					else {
+						Logger.Message(Logger.Mode.REGISTER, `Company ${Company.companyName} successfully registered`);
+						res.send({"Code": "200", "ID": Person.login});
+					}
+				});
 			}
 		});
 	});
-
-
 });
 
 /* [ - - - - - LOGIN - - - - - ] */
@@ -120,7 +353,7 @@ router.get('/user/*', (req, res, next) => {
 		if (!data) {
 			res.redirect('/login');
 		} else{
-			return res.render('user.ejs', {
+			return res.render('user/basket.ejs', {
 				name: data.name,
 				surname: data.surname,
 				companyName: data.companyName,

@@ -1,0 +1,86 @@
+.content__info__main__profile-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.content__info__main__profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.content__info__main__elems {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    width: 50%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.content__info__main__elems div {
+    margin-bottom: 20px;
+}
+
+.content__info__main__elems div input {
+    margin-left: 20px;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #bdbdbd;
+    padding-left: 10px;
+    width: 60%;
+}
+
+.content__info__main__elems div textarea {
+    margin-left: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #bdbdbd;
+    padding: 10px;
+    width: 57.9%;
+    resize: none;
+}
+
+.content__info__title-down {
+
+    padding: 30px 50px 20px 50px;
+    height: 50px;
+    background-color: rgba(222, 222, 222, 0.42);
+    border-bottom: 1px solid #bdbdbd;
+    border-top: 1px solid #bdbdbd;
+}
+
+.content__info__block__save input[type='file']{
+    width: 1%;
+    height: 1%;
+    color:#797979;
+    opacity: 0;
+}
+
+.content__info__block__save {
+    padding: 10px 40px 10px 40px;
+    text-align: center;
+    width: 100%;
+    border-radius: 25px;
+    height: 30px;
+    color: white;
+    line-height: 180%;
+    background-color: #00D9AF;
+    border: 2px solid #999999;
+    transition: 0.3s;
+}
+
+.content__info__block__save:hover {
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+}
+
+.content__info__main__profile__upload-photo {
+    width: 25%;
+}
+
+.content__info__main__profile__upload-photo__text {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}

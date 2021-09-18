@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= companyName %> - Jooba</title>
+    <link rel="stylesheet" href="../css/userStyle/userStyle.css">
+    <link rel="stylesheet" href="../css/userStyle/balanceStyle.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+        <div class="content__menu">
+            <div class="content__menu__company-info">
+                <img class="content__menu__company-info__img" src="../img/star.jpg" alt="">
+                <div class="content__menu__company-info__names">
+                    <p>Company:</p>
+                    <p>Brand:</p>
+                </div>
+                <div class="content__menu__company-info__names">
+                    <p><%= companyName %></p>
+                    <p><%= brandName %></p>
+                </div>
+            </div>
+            <div class="content__menu__logout">
+                <a class="content__menu__logout__btn" href="/logout">Вийти з акаунту</a>
+            </div>
+            <div class="content__menu__line"></div>
+            <a class="content__menu__button" href="/basket">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Кошик
+                </p>
+            </a>
+            <a class="content__menu__button" href="/order">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Замовлення
+                </p>
+            </a>
+            <a class="content__menu__button active" href="/balance">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Баланс
+                </p>
+            </a>
+            <a class="content__menu__button" href="/myGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Мої товари
+                </p>
+            </a>
+            <a class="content__menu__button" href="/setsOfGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Набори товарів
+                </p>
+            </a>
+            <a class="content__menu__button" href="/allGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Всі товари
+                </p>
+            </a>
+            <a class="content__menu__button" href="/suppliersUser">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Постачальники
+                </p>
+            </a>
+            <a class="content__menu__button" href="/newsFeed">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Стрічка новин
+                </p>
+            </a>
+            <a class="content__menu__button" href="/information">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Інформація
+                </p>
+            </a>
+            <div class="content__menu__balance">
+                <p class="content__menu__balance__title">Баланс</p>
+                <p class="content__menu__balance__text"><span class="content__menu__balance__text__money">0.00</span>грн</p>
+            </div>
+        </div>
+        <div class="content__info">
+            <div class="content__info__title">
+                <h1 class="content__info__title__text">Баланс - BETA</h1>
+            </div>
+            <div class="content__info__main">
+                <div class="content__info__main__money">
+                    <div class="content__info__main__money__elem">
+                        <p class="content__info__main__money__elem__text">Виплачено за весь період</p>
+                        <p class="content__info__main__money__elem__money">0.00</p>
+                    </div>
+                    <div class="content__info__main__money__elem">
+                        <p class="content__info__main__money__elem__text">Виплачено за весь період</p>
+                        <p class="content__info__main__money__elem__money">0.00</p>
+                    </div>
+                    <div class="content__info__main__money__elem">
+                        <p class="content__info__main__money__elem__text">Виплачено за весь період</p>
+                        <p class="content__info__main__money__elem__money">0.00</p>
+                    </div>
+                    <div class="content__info__main__money__elem">
+                        <p class="content__info__main__money__elem__text">Виплачено за весь період</p>
+                        <p class="content__info__main__money__elem__money">0.00</p>
+                    </div>
+                    <div class="content__info__main__filters">
+                        <div class="content__info__main__filters__right">
+                            <a class="content__info__main__filters__transaction" href="">Транзакції</a>
+                            <div class="content__info__main__filters__down">
+                                <p class="content__info__main__filters__num-elem">
+                                    Відображати по <select name="" id="">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </p>
+                                <p class="content__info__main__filters__num-order">Всього замвоженнь: 0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="content__info__main__table">
+                    <thead>
+                    <tr>
+                        <th>Тип операції</th>
+                        <th>Дата операції</th>
+                        <th>Номер замовлення</th>
+                        <th>Тип рахунку</th>
+                        <th>Вартість товарів</th>
+                        <th>Сума, грн</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <select name="" id="">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                            </select>
+                        </th>
+                        <th>
+                            <input type="date" placeholder="">
+                        </th>
+                        <th>
+                            <input type="text" placeholder="">
+                        </th>
+                        <th>
+                            <select name="" id="">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                            </select>
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p>Списання за тариф "Автопил"</p>
+                            </td>
+                            <td>
+                                <p>15.09.2021 17:50</p>
+                            </td>
+                            <td>
+                                <p>Доступно до виплати</p>
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <p>0.00</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+</script>
+<script src="../js/script.js"></script>
+</body>
+</html>

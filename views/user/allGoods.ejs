@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= companyName %> - Jooba</title>
+    <link rel="stylesheet" href="../css/userStyle/userStyle.css">
+    <link rel="stylesheet" href="../css/userStyle/allGoodsStyle.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+        <div class="content__menu">
+            <div class="content__menu__company-info">
+                <img class="content__menu__company-info__img" src="../img/star.jpg" alt="">
+                <div class="content__menu__company-info__names">
+                    <p>Company:</p>
+                    <p>Brand:</p>
+                </div>
+                <div class="content__menu__company-info__names">
+                    <p><%= companyName %></p>
+                    <p><%= brandName %></p>
+                </div>
+            </div>
+            <div class="content__menu__logout">
+                <a class="content__menu__logout__btn" href="/logout">Вийти з акаунту</a>
+            </div>
+            <div class="content__menu__line"></div>
+            <a class="content__menu__button" href="/basket">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Кошик
+                </p>
+            </a>
+            <a class="content__menu__button" href="/order">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Замовлення
+                </p>
+            </a>
+            <a class="content__menu__button" href="/balance">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Баланс
+                </p>
+            </a>
+            <a class="content__menu__button" href="/myGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Мої товари
+                </p>
+            </a>
+            <a class="content__menu__button" href="/setsOfGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Набори товарів
+                </p>
+            </a>
+            <a class="content__menu__button active" href="/allGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Всі товари
+                </p>
+            </a>
+            <a class="content__menu__button" href="/suppliersUser">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Постачальники
+                </p>
+            </a>
+            <a class="content__menu__button" href="/newsFeed">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Стрічка новин
+                </p>
+            </a>
+            <a class="content__menu__button" href="/information">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Інформація
+                </p>
+            </a>
+            <div class="content__menu__balance">
+                <p class="content__menu__balance__title">Баланс</p>
+                <p class="content__menu__balance__text"><span class="content__menu__balance__text__money">0.00</span>грн</p>
+            </div>
+        </div>
+        <div class="content__info">
+            <div class="content__info__title">
+                <h1 class="content__info__title__text">Товари постачальників</h1>
+            </div>
+            <div class="content__info__main">
+                <div class="content__info__main__tariff">
+                    <div class="content__info__main__tariff__left">
+                        <p class="content__info__main__tariff__title">Обмеження по товарам</p>
+                        <p class="content__info__main__tariff__subtitle">По вашому тарифу доступно тільки 100 товарів для додавання в Експорт</p>
+                    </div>
+                    <a class="content__info__main__tariff__btn" href="">Обрати тариф</a>
+                </div>
+                <div class="content__info__main__filters">
+                    <p class="content__info__main__filters__num-page">Сторінка 1 з 1</p>
+                    <div class="content__info__main__filters__right">
+                        <p class="content__info__main__filters__num-elem">
+                            Відображати по <select name="" id="">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                            </select>
+                        </p>
+                        <p class="content__info__main__filters__num-order">Товарів: 0</p>
+                    </div>
+                </div>
+                <!--<select name="" id=""></select>-->
+                <table id="allGoods" class="content__info__main__table">
+                    <thead>
+                        <tr>
+                            <!--<th><input type="checkbox"></th>-->
+                            <th>Назва</th>
+                            <!--<th>Топ/знижка</th>-->
+                            <!--<th>Артикул</th>-->
+                            <th>Бренд</th>
+                            <th>Постачальник</th>
+                            <th>Категорія</th>
+                            <th>Параметри</th>
+                            <th>Ціна</th>
+                            <th>Валюта</th>
+                            <!--<th>Наявність</th>
+                            <th>Статус</th>
+                            <th>Додано</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>c
+    </div>
+</div>
+<script>
+    let xmlContent = "";
+    let tableAllGoods = document.getElementById('allGoods');
+    fetch('xml/goodsFile.xml').then((response)=>{
+        response.text().then((xml)=>{
+            xmlContent = xml;
+            let parser = new DOMParser();
+            let xmlDOM = parser.parseFromString(xmlContent, 'application/xml');
+            let goods = xmlDOM.querySelectorAll('offer');
+
+            goods.forEach(goodsXmlNode => {
+                let row = document.createElement('tr');
+
+                //name
+                let td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[3].innerHTML;
+                row.appendChild(td);
+
+                //vendor
+                td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[4].innerHTML;
+                row.appendChild(td);
+
+                //vendorCode
+                td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[5].innerHTML;
+                row.appendChild(td);
+
+                //categoryId
+                td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[2].innerHTML;
+                row.appendChild(td);
+
+                //param
+                td = document.createElement('td');
+
+                let ul = document.createElement('ul');
+                let li = document.createElement('li');
+                li.innerText = goodsXmlNode.children[6].innerHTML;
+                ul.appendChild(li);
+
+                li = document.createElement('li');
+                li.innerText = goodsXmlNode.children[7].innerHTML;
+                ul.appendChild(li);
+
+                li = document.createElement('li');
+                li.innerText = goodsXmlNode.children[8].innerHTML;
+                ul.appendChild(li);
+
+                td.appendChild(ul);
+
+                row.appendChild(td);
+
+                //price
+                td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[0].innerHTML;
+                row.appendChild(td);
+
+                //currencyId
+                td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[1].innerHTML;
+                row.appendChild(td);
+
+                tableAllGoods.children[1].appendChild(row);
+            });
+        });
+    });
+</script>
+<script src="../js/script.js"></script>
+</body>
+</html>
