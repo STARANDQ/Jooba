@@ -1,0 +1,41 @@
+.content__info__main__filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 0.9em;
+}
+
+.content__info__main__filters__num-page {
+    width: 50%;
+}
+
+.content__info__main__filters__right {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: flex-end;
+}
+
+.content__info__main__filters__right p:last-child {
+    margin-left: 20px;
+}
+
+.content__info__main__table {
+    margin-top: 30px;
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid #bdbdbd;
+}
+
+.content__info__main__table thead tr th,
+.content__info__main__table tbody tr td{
+    padding: 10px;
+}
+
+.content__info__main__table tbody tr td input {
+    width: 120px;
+}
+
+.content__info__main__info-order {
+    font-size: 0.9em;
+}

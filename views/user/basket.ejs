@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=companyName%> - Jooba</title>
+    <link rel="stylesheet" href="../css/userStyle/userStyle.css">
+    <link rel="stylesheet" href="../css/userStyle/basketStyle.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+        <div class="content__menu">
+            <div class="content__menu__company-info">
+                <img class="content__menu__company-info__img" src="../img/star.jpg" alt="">
+                <div class="content__menu__company-info__names">
+                    <p>Company:</p>
+                    <p>Brand:</p>
+                </div>
+                <div class="content__menu__company-info__names">
+                    <p><%= companyName %></p>
+                    <p><%= brandName %></p>
+                </div>
+            </div>
+            <div class="content__menu__logout">
+                <a class="content__menu__logout__btn" href="/logout">Вийти з акаунту</a>
+            </div>
+            <div class="content__menu__line"></div>
+            <a class="content__menu__button active" href="/basket">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Кошик
+                </p>
+            </a>
+            <a class="content__menu__button" href="/order">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Замовлення
+                </p>
+            </a>
+            <a class="content__menu__button" href="/balance">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Баланс
+                </p>
+            </a>
+            <a class="content__menu__button" href="/myGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Мої товари
+                </p>
+            </a>
+            <a class="content__menu__button" href="/setsOfGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Набори товарів
+                </p>
+            </a>
+            <a class="content__menu__button" href="/allGoods">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Всі товари
+                </p>
+            </a>
+            <a class="content__menu__button" href="/suppliersUser">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Постачальники
+                </p>
+            </a>
+            <a class="content__menu__button" href="/newsFeed">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Стрічка новин
+                </p>
+            </a>
+            <a class="content__menu__button" href="/information">
+                <img class="content__menu__button__img" src="../img/star.jpg" alt="">
+                <p class="content__menu__button__text">
+                    Інформація
+                </p>
+            </a>
+            <div class="content__menu__balance">
+                <p class="content__menu__balance__title">Баланс</p>
+                <p class="content__menu__balance__text"><span class="content__menu__balance__text__money">0.00</span>грн</p>
+            </div>
+        </div>
+        <div class="content__info">
+            <div class="content__info__title">
+                <h1 class="content__info__title__text">Кошик</h1>
+            </div>
+            <div class="content__info__main">
+                <p class="content__info__main__subtitle">Товари</p>
+                <table class="content__info__main__info-goods" >
+                    <thead>
+                        <tr class="content__info__main__info-goods__item">
+                            <th>Назва товару: Shampoo</th>
+                            <th>Постачальник: Loreal</th>
+                            <th>Кількість: 20</th>
+                            <th>Ціна: 2000 грн</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="content__info__main__info-goods__main-text">
+                            <td colspan="2">Закальна вартість:</td>
+                            <td colspan="2">0.00 грн</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <form class="content__info__main__form" action="">
+                    <div class="content__info__main__form__elem">
+                        <label for="name">Ім'я покупця</label>
+                        <input id="name" name="name" type="text" placeholder="Ім'я покупця">
+                    </div>
+                    <div class="content__info__main__form__elem">
+                        <label for="number">Телефон покупця</label>
+                        <input id="number" name="number" type="text" placeholder="+380">
+                    </div>
+                    <div class="content__info__main__form__elem">
+                        <label for="email">E-mail покупця</label>
+                        <input id="email" name="email" type="email" placeholder="E-mail покупця">
+                    </div>
+                    <div class="content__info__main__form__elem">
+                        <label for="orderNumber">Номер замовлення</label>
+                        <input id="orderNumber" name="orderNumber" type="text" placeholder="Номер замовлення">
+                    </div>
+                    <div class="content__info__main__form__elem">
+                        <label for="delivery">Дані доставки</label>
+                        <input id="delivery" name="delivery" type="text" placeholder="Дані доставки">
+                    </div>
+                    <div class="content__info__main__form__elem">
+                        <label for="comment">Коментар до замовлення</label>
+                        <input id="comment" name="comment" type="text" placeholder="Коментар до замовлення">
+                    </div>
+                    <button class="content__info__main__form__btn" type="submit">Оформити заявку</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+</script>
+<script src="../js/script.js"></script>
+</body>
+</html>

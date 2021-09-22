@@ -1,0 +1,79 @@
+.content__info__main__info-goods {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #bdbdbd;
+}
+
+.content__info__main__info-goods thead {
+    height: 50px;
+    background-color: rgba(222, 222, 222, 0.42);
+}
+.content__info__main__info-goods tbody {
+    height: 50px;
+}
+
+.content__info__main__info-goods__item th {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.content__info__main__info-goods__main-text td {
+    width: 50%;
+}
+
+.content__info__main__info-goods__main-text td:first-child {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.content__info__main__info-goods__main-text td:last-child {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.content__info__main__form {
+    margin-top: 30px;
+}
+
+.content__info__main__form__elem {
+
+}
+
+.content__info__main__form__elem label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.content__info__main__form__elem input {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #bdbdbd;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+
+.content__info__main__form__elem input::placeholder {
+    font-size: 1.1em;
+}
+
+.content__info__main__form__btn {
+    padding-right: 2px;
+    text-align: center;
+    margin-top: 10px;
+    width: 25%;
+    border-radius: 25px;
+    height: 35px;
+    color: white;
+    line-height: 180%;
+    background-color: #00D9AF;
+    border: 2px solid #999999;
+    transition: 0.3s;
+}
+
+.content__info__main__form__btn:hover {
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+}

@@ -4,9 +4,8 @@
 }
 
 .content__elems {
-    display: grid;
-    grid-row-gap: 10%;
-    grid-template-rows: 70% 40% 80%;
+    display: flex;
+    flex-direction: column;
 }
 
 .content__elems__text {
@@ -28,15 +27,17 @@
 
 .content__elems__contact {
     color: #414141;
-    display: grid;
-    grid-template-rows: 40% 30% 30%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
 }
 
 .content__elems__contactEdit {
     color: #414141;
-    display: grid;
-    grid-template-rows: 70% 30%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
 }
 
@@ -46,31 +47,32 @@
 
 .content__elems__contact__info {
     font-size: 2em;
-    margin-bottom: 50px;
+    margin: 25px 0 75px 0;
 }
 
 .content__elems__form {
-    display: grid;
-    grid-template-rows: 20% 80%;
+    display: flex;
+    flex-direction: column;
     color: #414141;
 }
 
 .content__elems__form__title {
     font-size: 3em;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .content__elems__form__main {
-    display: grid;
-    grid-row-gap: 40px;
-    grid-template-rows: repeat(4, 12%);
+    display: flex;
+    flex-direction: column;
 }
 
 .content__elems__form__main__input {
     width: 40%;
+    height: 50px;
     border-radius: 50px;
     outline: none;
-    margin: 0 auto;
+    margin: 0 auto 25px auto;
     padding-left: 30px;
     font-size: 1.5em;
     color: #414141;
