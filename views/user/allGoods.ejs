@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title> - Jooba</title>
+=======
+    <title><%= companyName %> - Jooba</title>
+>>>>>>> origin/master
     <link rel="stylesheet" href="../css/userStyle/userStyle.css">
     <link rel="stylesheet" href="../css/userStyle/allGoodsStyle.css">
 </head>
@@ -17,8 +21,13 @@
                     <p>Brand:</p>
                 </div>
                 <div class="content__menu__company-info__names">
+<<<<<<< HEAD
                     <p></p>
                     <p></p>
+=======
+                    <p><%= companyName %></p>
+                    <p><%= brandName %></p>
+>>>>>>> origin/master
                 </div>
             </div>
             <div class="content__menu__logout">
@@ -109,6 +118,7 @@
                         <p class="content__info__main__filters__num-order">Товарів: 0</p>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <table id="allGoods" class="content__info__main__table">
                     <thead>
                         <tr>
@@ -157,6 +167,103 @@
         </div>
     </div>
 </div>
+=======
+                <!--<select name="" id=""></select>-->
+                <table id="allGoods" class="content__info__main__table">
+                    <thead>
+                        <tr>
+                            <!--<th><input type="checkbox"></th>-->
+                            <th>Назва</th>
+                            <!--<th>Топ/знижка</th>-->
+                            <!--<th>Артикул</th>-->
+                            <th>Бренд</th>
+                            <th>Постачальник</th>
+                            <th>Категорія</th>
+                            <th>Параметри</th>
+                            <th>Ціна</th>
+                            <th>Валюта</th>
+                            <!--<th>Наявність</th>
+                            <th>Статус</th>
+                            <th>Додано</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>c
+    </div>
+</div>
+<script>
+    let xmlContent = "";
+    let tableAllGoods = document.getElementById('allGoods');
+    fetch('xml/goodsFile.xml').then((response)=>{
+        response.text().then((xml)=>{
+            xmlContent = xml;
+            let parser = new DOMParser();
+            let xmlDOM = parser.parseFromString(xmlContent, 'application/xml');
+            let goods = xmlDOM.querySelectorAll('offer');
+
+            goods.forEach(goodsXmlNode => {
+                let row = document.createElement('tr');
+
+                //name
+                let td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[3].innerHTML;
+                row.appendChild(td);
+
+                //vendor
+                td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[4].innerHTML;
+                row.appendChild(td);
+
+                //vendorCode
+                td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[5].innerHTML;
+                row.appendChild(td);
+
+                //categoryId
+                td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[2].innerHTML;
+                row.appendChild(td);
+
+                //param
+                td = document.createElement('td');
+
+                let ul = document.createElement('ul');
+                let li = document.createElement('li');
+                li.innerText = goodsXmlNode.children[6].innerHTML;
+                ul.appendChild(li);
+
+                li = document.createElement('li');
+                li.innerText = goodsXmlNode.children[7].innerHTML;
+                ul.appendChild(li);
+
+                li = document.createElement('li');
+                li.innerText = goodsXmlNode.children[8].innerHTML;
+                ul.appendChild(li);
+
+                td.appendChild(ul);
+
+                row.appendChild(td);
+
+                //price
+                td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[0].innerHTML;
+                row.appendChild(td);
+
+                //currencyId
+                td = document.createElement('td');
+                td.innerText = goodsXmlNode.children[1].innerHTML;
+                row.appendChild(td);
+
+                tableAllGoods.children[1].appendChild(row);
+            });
+        });
+    });
+</script>
+>>>>>>> origin/master
 <script src="../js/script.js"></script>
 </body>
 </html>
