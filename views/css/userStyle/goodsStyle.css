@@ -1,0 +1,37 @@
+.content__info__main__top {
+    display: flex;
+    flex-direction: row;
+}
+
+.content__info__main__goods-img {
+    width: 250px;
+    height: 100%;
+}
+
+.content__info__main__text {
+    margin-left: 100px;
+}
+
+.content__info__main__text__title {
+    font-size: 5em;
+}
+
+.content__info__main__text__subtitle {
+    margin-top: 30px;
+    font-size: 2em;
+}
+
+.content__info__main__main {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.content__info__main__main div {
+    margin-right: 200px;
+}
+
+.content__info__main__main div p {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}

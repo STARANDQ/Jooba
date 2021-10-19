@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><%= companyName %> - Jooba</title>
+    <title> - Jooba</title>
     <link rel="stylesheet" href="../css/userStyle/userStyle.css">
     <link rel="stylesheet" href="../css/userStyle/allGoodsStyle.css">
 </head>
@@ -17,8 +17,8 @@
                     <p>Brand:</p>
                 </div>
                 <div class="content__menu__company-info__names">
-                    <p><%= companyName %></p>
-                    <p><%= brandName %></p>
+                    <p></p>
+                    <p></p>
                 </div>
             </div>
             <div class="content__menu__logout">
@@ -112,70 +112,51 @@
                 <table id="allGoods" class="content__info__main__table">
                     <thead>
                         <tr>
-                            <!--<th><input type="checkbox"></th>-->
+                            <th></th>
                             <th>Назва</th>
-                            <!--<th>Топ/знижка</th>-->
-                            <!--<th>Артикул</th>-->
-                            <th>Бренд</th>
-                            <th>Постачальник</th>
-                            <th>Категорія</th>
+                            <th>Виробник</th>
+                            <th>Код виробника</th>
                             <th>Ціна</th>
-                            <!--<th>Наявність</th>
-                            <th>Статус</th>
-                            <th>Додано</th>-->
+                            <th>Валюта</th>
+                            <th>Параметри</th>
+                            <th>Категорія</th>
+                            <th>Доступно</th>
+                            <th>ID товару</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                    <%goods[0].forEach(elem => {%>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td><%=elem.nameI%></td>
+                            <td><%=elem.vendorI%></td>
+                            <td><%=elem.vendorCodeI%></td>
+                            <td><%=elem.priceI%></td>
+                            <td><%=elem.currencyIdI%></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <%=elem.sizeI%>
+                                    </li>
+                                    <li>
+                                        <%=elem.colorI%>
+                                    </li>
+                                    <li>
+                                        <%=elem.materialI%>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td><%=elem.categoryIdI%></td>
+                            <td><%=elem.availableI%></td>
+                            <td><%=elem.goodsId%></td>
+                        </tr>
+                    <%})%>
                     </tbody>
                 </table>
             </div>
-        </div>c
+        </div>
     </div>
 </div>
-<script>
-    let xmlContent = "";
-    let tableAllGoods = document.getElementById('allGoods');
-    fetch('xml/goodsFile.xml').then((response)=>{
-        response.text().then((xml)=>{
-            xmlContent = xml;
-            let parser = new DOMParser();
-            let xmlDOM = parser.parseFromString(xmlContent, 'application/xml');
-            let goods = xmlDOM.querySelectorAll('offer');
-
-            goods.forEach(goodsXmlNode => {
-                let row = document.createElement('tr');
-
-                //name
-                let td = document.createElement('td');
-                td.innerText = goodsXmlNode.children[3].innerHTML;
-                row.appendChild(td);
-
-                //vendor
-                td = document.createElement('td');
-                td.innerText = goodsXmlNode.children[4].innerHTML;
-                row.appendChild(td);
-
-                //vendorCode
-                td = document.createElement('td');
-                td.innerText = goodsXmlNode.children[5].innerHTML;
-                row.appendChild(td);
-
-                //categoryId
-                td = document.createElement('td');
-                td.innerText = goodsXmlNode.children[2].innerHTML;
-                row.appendChild(td);
-
-                //price
-                td = document.createElement('td');
-                td.innerText = goodsXmlNode.children[0].innerHTML;
-                row.appendChild(td);
-
-                tableAllGoods.children[1].appendChild(row);
-            });
-        });
-    });
-</script>
 <script src="../js/script.js"></script>
 </body>
 </html>

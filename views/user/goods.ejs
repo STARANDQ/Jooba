@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title><%= companyName %> - Jooba</title>
     <link rel="stylesheet" href="../css/userStyle/userStyle.css">
-    <link rel="stylesheet" href="../css/userStyle/myGoodsStyle.css">
+    <link rel="stylesheet" href="../css/userStyle/goodsStyle.css">
 </head>
 <body>
 <div class="wrapper">
@@ -43,7 +43,7 @@
                     Баланс
                 </p>
             </a>
-            <a class="content__menu__button active" href="/myGoods">
+            <a class="content__menu__button" href="/myGoods">
                 <img class="content__menu__button__img" src="../img/star.jpg" alt="">
                 <p class="content__menu__button__text">
                     Мої товари
@@ -86,78 +86,36 @@
         </div>
         <div class="content__info">
             <div class="content__info__title">
-                <h1 class="content__info__title__text">Мої товари</h1>
+                <h1 class="content__info__title__text">Товар - "Назва товару"</h1>
             </div>
             <div class="content__info__main">
-                <div class="content__info__main__tariff">
-                    <div class="content__info__main__tariff__left">
-                        <p class="content__info__main__tariff__title">Обмеження по товарам</p>
-                        <p class="content__info__main__tariff__subtitle">По вашому тарифу доступно тільки 100 товарів для додавання в Експорт</p>
-                    </div>
-                    <a class="content__info__main__tariff__btn" href="">Обрати тариф</a>
-                </div>
-                <div class="content__info__main__filters">
-                    <p class="content__info__main__filters__num-page">Сторінка 1 з 1</p>
-                    <div class="content__info__main__filters__right">
-                        <p class="content__info__main__filters__num-elem">
-                            Відображати по <select name="" id="">
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                            </select>
-                        </p>
-                        <p class="content__info__main__filters__num-order">Товарів: 0</p>
+                <div class="content__info__main__top">
+                    <img class="content__info__main__goods-img" src="../img/star.jpg" alt="">
+                    <div class="content__info__main__text">
+                        <h2 class="content__info__main__text__title">Назва товару</h2>
+                        <p class="content__info__main__text__subtitle">Доступ</p>
                     </div>
                 </div>
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <input type="file" name="uploadFile" multiple />
-                    <input hidden="hidden" type="text" value="<%= userId %>">
-                    <input type="submit">
-                </form>
-                <table id="allGoods" class="content__info__main__table">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Назва</th>
-                        <th>Виробник</th>
-                        <th>Код виробника</th>
-                        <th>Ціна</th>
-                        <th>Валюта</th>
-                        <th>Параметри</th>
-                        <th>Категорія</th>
-                        <th>Доступно</th>
-                        <th>ID товару</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <%goods[0].forEach(elem => {%>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td><%=elem.nameI%></td>
-                        <td><%=elem.vendorI%></td>
-                        <td><%=elem.vendorCodeI%></td>
-                        <td><%=elem.priceI%></td>
-                        <td><%=elem.currencyIdI%></td>
-                        <td>
-                            <ul>
-                                <li>
-                                    <%=elem.sizeI%>
-                                </li>
-                                <li>
-                                    <%=elem.colorI%>
-                                </li>
-                                <li>
-                                    <%=elem.materialI%>
-                                </li>
-                            </ul>
-                        </td>
-                        <td><%=elem.categoryIdI%></td>
-                        <td><%=elem.availableI%></td>
-                        <td><%=elem.goodsId%></td>
-                    </tr>
-                    <%})%>
-                    </tbody>
-                </table>
+                <div class="content__info__main__main">
+                    <div>
+                        <p>userLogin</p>
+                        <p>userIdI</p>
+                        <p>goodsId</p>
+                        <p>availableI</p>
+                        <p>nameI</p>
+                        <p>priceI</p>
+                        <p>currencyIdI</p>
+                    </div>
+                    <div>
+                        <p>categoryIdI</p>
+                        <p>vendorI</p>
+                        <p>vendorCodeI</p>
+                        <p>sizeI</p>
+                        <p>colorI</p>
+                        <p>materialI</p>
+                        <p>picturesI</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

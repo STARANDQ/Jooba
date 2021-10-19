@@ -1,10 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const Logger = require('../Logger');
+const fsExtra = require('fs-extra')
+
+const fs = require("fs");
 
 const User = require('../models/user');
 const Company = require('../models/company');
+const Goods = require('../models/goods');
 
+const multer  = require("multer");
+
+let convert = require('xml-js');
+let parser = require('xml2json');
+
+const app = express();
 /* [ - - - - - HTML PAGES - - - - - ] */
 
 router.get('/index', (req, res, next) => {
@@ -84,19 +94,51 @@ router.get('/balance', (req, res, next) => {
 });
 
 router.get('/myGoods', (req, res, next) => {
-	User.findOne({ login: req.session.user_id }, (err, data) => {
-		if (!data) {
-			res.redirect('/login');
-		} else{
-			return res.render('user/myGoods.ejs', {
-				userId: data.id,
-				name: data.name,
-				surname: data.surname,
-				companyName: data.companyName,
-				brandName: data.brandName
-			});
-		}
-	});
+	async function PromiseGoods(){
+		let goodsObj = {
+			userLogin: "",
+			userIdI:  "",
+			goodsId:  "",
+			availableI: "",
+			nameI: "",
+			priceI: "",
+			currencyIdI: "",
+			categoryIdI: "",
+			vendorI: "",
+			vendorCodeI: "",
+			sizeI: "",
+			colorI: "",
+			materialI: "",
+			picturesI: ""
+		};
+
+		let goodsArray = [];
+		Goods.find({ userIdI: req.session.user_id }, (err, data) => {
+			if (data) {
+				goodsArray.push(data);
+			}
+		});
+		return goodsArray;
+	}
+	PromiseGoods().then(goodsObj => {
+		User.findOne({ login: req.session.user_id }, (err, data) => {
+			if (!data) {
+				res.redirect('/login');
+			} else{
+				return res.render('user/myGoods.ejs', {
+					userId: data.id,
+					login: data.login,
+					name: data.name,
+					surname: data.surname,
+					companyName: data.companyName,
+					brandName: data.brandName,
+					email: data.email,
+					phoneNumber: data.phoneNumber,
+					goods: goodsObj
+				});
+			}
+		});
+	})
 });
 
 router.get('/setsOfGoods', (req, res, next) => {
@@ -116,19 +158,51 @@ router.get('/setsOfGoods', (req, res, next) => {
 });
 
 router.get('/allGoods', (req, res, next) => {
-	User.findOne({ login: req.session.user_id }, (err, data) => {
-		if (!data) {
-			res.redirect('/login');
-		} else{
-			return res.render('user/allGoods.ejs', {
-				userId: data.id,
-				name: data.name,
-				surname: data.surname,
-				companyName: data.companyName,
-				brandName: data.brandName
-			});
-		}
-	});
+	async function PromiseGoods(){
+		let goodsObj = {
+			userLogin: "",
+			userIdI:  "",
+			goodsId:  "",
+			availableI: "",
+			nameI: "",
+			priceI: "",
+			currencyIdI: "",
+			categoryIdI: "",
+			vendorI: "",
+			vendorCodeI: "",
+			sizeI: "",
+			colorI: "",
+			materialI: "",
+			picturesI: ""
+		};
+
+		let goodsArray = [];
+		Goods.find({ userIdI: req.session.user_id }, (err, data) => {
+			if (data) {
+				goodsArray.push(data);
+			}
+		});
+		return goodsArray;
+	}
+	PromiseGoods().then(goodsObj => {
+		User.findOne({ login: req.session.user_id }, (err, data) => {
+			if (!data) {
+				res.redirect('/login');
+			} else{
+				return res.render('user/allGoods.ejs', {
+					userId: data.id,
+					login: data.login,
+					name: data.name,
+					surname: data.surname,
+					companyName: data.companyName,
+					brandName: data.brandName,
+					email: data.email,
+					phoneNumber: data.phoneNumber,
+					goods: goodsObj
+				});
+			}
+		});
+	})
 });
 
 router.get('/suppliersUser', (req, res, next) => {
@@ -162,6 +236,68 @@ router.get('/newsFeed', (req, res, next) => {
 		}
 	});
 });
+
+router.get('/goods', (req, res, next) => {
+	User.findOne({ login: req.session.user_id }, (err, data) => {
+		if (!data) {
+			res.redirect('/login');
+		} else{
+			return res.render('user/goods.ejs', {
+				userId: data.id,
+				name: data.name,
+				surname: data.surname,
+				companyName: data.companyName,
+				brandName: data.brandName
+			});
+		}
+	});
+});
+
+const upload = multer({ dest: 'uploads/' })
+router.post('/upload', upload.array('uploadFile', 50), function (req, res, next) {
+	let jsonContent = "";
+	let	newXML = "";
+	async function fileChech(){
+		req.files.forEach(file => {
+			fs.readFile( "uploads/" + file.filename, function(err, data) {
+				jsonContent = JSON.parse(parser.toJson(data));
+				jsonContent.yml_catalog.shop.offers.offer.forEach(element => {
+					newXML = new Goods({
+						userIdI: req.session.user_id,
+						goodsId: element.id,
+						availableI: element.available,
+						nameI: element.name,
+						priceI: element.price,
+						currencyIdI: element.currencyId,
+						categoryIdI: element.categoryId,
+						vendorI: element.vendor,
+						vendorCodeI: element.vendorCode,
+						sizeI: element.param[0]['$t'],
+						colorI: element.param[1]['$t'],
+						materialI: element.param[2]['$t'],
+						/*paramI: element.param[0].name + element.param[0]['$t'],*/
+						picturesI: element.picture
+					})
+					console.log(newXML)
+					newXML.save((err, Goods) => {
+						if (err) Logger.Error(Logger.Mode.REGISTER, err);
+						else {
+							Logger.Message(Logger.Mode.REGISTER, `Goods ${Goods.nameI} successfully registered`);
+
+						}
+					});
+					}
+				)
+			})
+		});
+	}
+	fileChech().then(() => {
+		fsExtra.emptyDirSync('uploads')
+		return res.redirect('/myGoods');
+	})
+
+
+})
 
 router.get('/information', (req, res, next) => {
 

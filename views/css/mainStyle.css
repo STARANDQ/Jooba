@@ -5,17 +5,17 @@
     font-weight: bold;
 }
 
-html, body {
-    height: 100%;
-}
-
 div {
     margin: 0;
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
     color: #414141;
+}
+
+li {
+    list-style-type: none;
 }
 
 .wrapper {
@@ -24,18 +24,8 @@ a {
     flex-direction: column;
 }
 
-.background {
-    height: 100%;
-}
-
-
 .header__nav {
-    flex: 2;
-    margin-right: 30px;
     text-align: right;
-}
-
-.header__nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -47,23 +37,23 @@ a {
     color: #222;
 }
 
-.header__nav__menu > li {
+.header__nav > li {
     display: inline-block;
     padding-right: 10px;
     position: relative;
 }
 
-.header__nav__menu > li > a {
+.header__nav > li > a {
     color: #414141;
     position: relative;
 }
 
-.header__nav__menu li:hover a:before {
+.header__nav li:hover a:before {
     transform: translate(-50%, 0);
     opacity: 1;
 }
 
-.header__nav__menu__submenu {
+.header__nav__submenu {
     position: absolute;
     z-index: 4;
     left: 50%;
@@ -82,23 +72,23 @@ a {
     transition: .3s;
 }
 
-.header__nav__menu__submenu a {
+.header__nav__submenu a {
     text-align: center;
 }
 
-.header__nav__menu > li:hover .header__nav__menu__submenu {
+.header__nav > li:hover .header__nav__submenu {
     visibility: visible;
     opacity: 1;
     transform: translate(-50%, 0);
 }
 
-.header__nav__menu__submenu a {
+.header__nav__submenu a {
     font-size: 0.9em;
     padding: 10px 15px;
     transition: .3s linear;
 }
 
-.header__nav__menu__submenu a:hover {
+.header__nav__submenu a:hover {
     background: #e8e8e8;
     border-radius: 35px;
 }
@@ -213,14 +203,6 @@ a {
     margin-bottom: 100px;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .header__account {
     flex: 1;
     display: flex;
@@ -315,116 +297,70 @@ a {
 
 .footer{
     background: #E0673A;
-    padding-top: 40px;
     margin-top: 150px;
-    padding-bottom: 10px;
+    padding: 30px 0 20px 0;
     border-radius: 20px 20px 0 0;
     box-shadow: 0 -7px 30px 0 rgba(0, 0, 0, 0.25);
 }
 
-.footer svg{
-    position: absolute;
-}
-
-.footer .circle_left{
-    left: 0;
-}
-
-.footer .icon_facebook{
-    position: relative;
-    left: -120px;
-    bottom: 140px;
-}
-
-.footer .icon_youtube{
-    bottom: 90px;
-    position: relative;
-    left: 80px;
-}
-
-.footer .icon_instagram{
-    position: relative;
-    left: 20px;
-    bottom: 34px;
-}
-
-.footer .icon_telegram{
-    position: relative;
-    left: -60px;
-    bottom: -17px;
-}
-
-.footer .logo{
-    left: 190px;
-}
-
-.footer .right_bottom{
-    right: 0;
-}
-
-.footer .bottom{
-    bottom: -70px;
-    position: relative;
-}
-
-.footer .nav{
-    padding: 40px;
-    margin-left: 80px;
-    display: inline-block;
-}
-
-.footer .nav li{
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 15px;
-    padding: 10px 50px 10px 10px;
+.footer__link li{
     list-style-type: none;
+    margin-bottom: 10px;
 }
 
-.footer .nav li a{
+.footer__link li a{
     color: white;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
-.footer .link{
+.footer__link{
     display: inline-block;
     margin-top: -40px;
 }
-.footer .buttons{
-    display: block;
-    margin-top: 8px;
-}
-.footer .buttons .buttonLeft{
-    float: left;
+.footer__account {
+    margin-bottom: 15px;
 }
 
-.footer .buttons .buttonLeft a{
-    background: white;
-    padding: 10px 70px 10px 70px;
-    border-radius: 20px;
-    border: 1px solid #8a8a8a;
+.footer__account__cabinet {
+    text-align: center;
+    padding: 5px 50px;
+    margin-right: 10px;
+    background-color: white;
+    color: #4A4A4A;
+    line-height: 180%;
+    border: 2px solid #999999;
+    border-radius: 25px;
     transition: 0.3s;
 }
 
-.footer .buttons .buttonLeft a:hover{
+.footer__account__cabinet:hover {
     box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4);
     transition: 0.3s;
 }
 
-.footer .buttons .buttonRight a{
-    background: #00D9AF;
-    color:white;
-    padding: 10px 70px 10px 70px;
-    border-radius: 20px;
-    border: 1px solid #008269;
-    margin-left: 15px;
+.footer__account__start {
+    text-align: center;
+    padding: 5px 50px;
+    color: white;
+    line-height: 180%;
+    background-color: #00D9AF;
+    border: 2px solid #999999;
+    border-radius: 25px;
     transition: 0.3s;
 }
 
-.footer .buttons .buttonRight a:hover{
+.footer__account__start:hover {
     box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4);
     transition: 0.3s;
 }
 
-.footer__content {
-    padding: 15px;
+.footer__line {
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 0.5px;
+    margin: 15px 0;
+}
+
+.footer__copyright {
+    color: white;
 }

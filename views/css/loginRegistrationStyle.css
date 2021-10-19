@@ -2,13 +2,6 @@ body {
     background-color: #E0673A;
 }
 
-.container__a {
-    display: grid;
-    grid-template-columns: 75% 20% 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .header__account__cabinet__reg {
     padding-right: 2px;
     text-align: center;
@@ -37,8 +30,6 @@ body {
 }
 
 .content__form {
-    display: grid;
-    grid-template-rows: 10% 90%;
     color: white;
     margin-bottom: 200px;
     z-index: -1;
@@ -50,49 +41,40 @@ body {
 }
 
 .content__form__main {
-    display: grid;
-    grid-row-gap: 25px;
-    grid-template-rows: repeat(7, 7%) 5%;
+
+}
+
+.content__form__main__elem__check {
+    margin: 15px auto 15px auto;
+    width: 31%;
 }
 
 .content__form__main__err {
     width: 30%;
     height: 10px;
-    margin: 3px auto 0 auto;
+    margin: 5px auto 0 auto;
     font-size: 0.9em;
+    text-align: center;
 }
 
 .content__form__main__input {
-    width: 30%;
+    display: block;
+    margin: 15px auto 0 auto;
+    width: 35%;
     border-radius: 50px;
     outline: none;
-    margin: 0 auto;
-    padding-left: 30px;
+    padding: 0 30px;
     font-size: 1.5em;
     color: #414141;
     height: 50px;
 }
 
-.content__form__main__check {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.content__form__main__access {
-    margin: 0 auto;
-    height: 5px;
-}
-
-.content__form__main__access__checkbox {
-}
-
 .content__form__main__btn {
-    background-color: #00D9AF;
-    width: 20%;
-    color: white;
+    display: block;
     margin: 0 auto;
+    width: 25%;
+    background-color: #00D9AF;
+    color: white;
     text-align: center;
     height: 40px;
     border: 2px solid #008269;
